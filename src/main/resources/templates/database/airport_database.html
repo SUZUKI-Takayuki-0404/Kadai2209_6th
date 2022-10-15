@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<!--http://www.thymeleaf.org -->
+<head>
+    <meta charset="UTF-8">
+    <title>Airport Information</title>
+</head>
+
+<body>
+<h1>Airport Information</h1>
+
+<table>
+    <tr>
+        <td>Code:</td>
+        <td th:text="${airports.airportCode}"></td>
+    </tr>
+
+    <tr>
+        <td>Airport Name:</td>
+        <td th:text="${airports.airportName}"></td>
+    </tr>
+
+    <tr>
+        <td>Prefecture:</td>
+        <td th:text="${airports.country}"></td>
+    </tr>
+</table>
+
+<br><a href="../hello">Back to Tpo page</a>
+
+</body>
+</html>
