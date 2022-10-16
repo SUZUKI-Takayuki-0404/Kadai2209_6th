@@ -9,8 +9,8 @@
 
 <h1>Hello! Let's search an airport name by 3-letter code!</h1>
 <br>
-<form method="post" action="/database/airport_database" name="pullDownForm">
 
+<form method="post" action="/database/airport_database" name="pullDownForm">
     Airport code:
     <select id="selectedCode" name="codeToSelect">
         <option value="">Select code</option>
@@ -30,6 +30,7 @@
 	    const indexNumber = codeToSelect.selectedIndex;
 	    document.pullDownForm.airport_code.value = codeToSelect.options[indexNumber].value;
     }
+
 
 </script>
 
