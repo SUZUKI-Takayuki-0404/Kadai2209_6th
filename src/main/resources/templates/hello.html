@@ -9,55 +9,29 @@
 
 <h1>Hello! Let's search an airport name by 3-letter code!</h1>
 <br>
-<form method="post" action="/database/airport_database" name="writeDownForm">
-    Airport code:<input type="text" name="airport_code" th:value="${airport_code_value}"/>
-    <input type="submit" value="Click here"/>
+<form method="post" action="/database/airport_database" name="pullDownForm">
+
+    Airport code:
+    <select id="selectedCode" name="codeToSelect">
+        <option value="">Select code</option>
+        <option th:each="airportCode : ${airportCodeList}"
+                th:value="${airportCode}"
+                th:text="${airportCode}"
+                th:selected="${airportCode == selectedValue}">
+        </option>
+    </select>
+
+    <button type="submit" id="CodeToBeInput" name="airport_code" onclick="updateValue()">Search</button>
 </form>
 
-<br>
-<h3>Codes listed below are available:</h3>
-<ol>
-    <li>NRT</li>
-    <li>HND</li>
-    <li>KIX</li>
-    <li>NGO</li>
-    <li>JFK</li>
-    <li>BOS</li>
-    <li>ORD</li>
-    <li>DFW</li>
-    <li>SFO</li>
-    <li>LAX</li>
-    <li>SAN</li>
-    <li>YVR</li>
-    <li>HNL</li>
-    <li>LHR</li>
-    <li>CDG</li>
-    <li>FRA</li>
-    <li>DME</li>
-    <li>PVG</li>
-    <li>SHA</li>
-    <li>HKG</li>
-    <li>BJS</li>
-    <li>DLC</li>
-    <li>TSN</li>
-    <li>CAN</li>
-    <li>ICN</li>
-    <li>GMP</li>
-    <li>PUS</li>
-    <li>TPE</li>
-    <li>TSA</li>
-    <li>KHH</li>
-    <li>SGN</li>
-    <li>HAN</li>
-    <li>BKK</li>
-    <li>KUL</li>
-    <li>SIN</li>
-    <li>CGK</li>
-    <li>MNL</li>
-    <li>DEL</li>
-    <li>GUM</li>
-    <li>SYD</li>
-</ol>
+<script type="text/javascript">
+    function updateValue(){
+    	const codeToSelect = document.pullDownForm.codeToSelect;
+	    const indexNumber = codeToSelect.selectedIndex;
+	    document.pullDownForm.airport_code.value = codeToSelect.options[indexNumber].value;
+    }
+
+</script>
 
 </body>
 </html>
