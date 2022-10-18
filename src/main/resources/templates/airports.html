@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+
+<body>
+
+<h1>Hello! Let's search an airport name by 3-letter code!</h1>
+<br>
+
+<form method="post" action="/database/airport_database" name="pullDownForm">
+    Airport code:
+    <select id="selectedCode" name="codeToSelect">
+        <option value="">Select code</option>
+        <option th:each="airportCode : ${airportCodeList}"
+                th:value="${airportCode}"
+                th:text="${airportCode}"
+                th:selected="${airportCode == selectedValue}">
+        </option>
+    </select>
+
+    <button type="submit" id="codeToBeInput" name="airport_code" onclick="updateValue()">Search</button>
+</form>
+
+<script type="text/javascript">
+    function updateValue(){
+            const codeToSelect = document.pullDownForm.codeToSelect;
+	    const indexNumber = codeToSelect.selectedIndex;
+	    document.pullDownForm.airport_code.value = codeToSelect.options[indexNumber].value;
+    }
+
+</script>
+
+</body>
+</html>

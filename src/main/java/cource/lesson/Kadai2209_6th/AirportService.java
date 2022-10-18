@@ -3,6 +3,7 @@ package cource.lesson.Kadai2209_6th;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -25,5 +26,9 @@ public class AirportService {
 
         return airportEntity;
     }
-    
+
+    public List<String> getAllAirportCode() {
+        return repository.findAllCode();
+    }
+
 }
