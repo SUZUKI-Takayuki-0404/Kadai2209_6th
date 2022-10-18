@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class HelloController {
+public class AirportController {
 
     @Autowired
     private AirportService service;
 
-    @GetMapping("/hello")
+    @GetMapping("/airports")
     public String getAirportCode(String airportCode, Model model) {
 
         List<String> airportCodeList = service.getAllAirportCode();
 
         model.addAttribute("airportCodeList", airportCodeList);
 
-        return "hello";
+        return "airports";
     }
 
     @PostMapping("/database/airport_database")
