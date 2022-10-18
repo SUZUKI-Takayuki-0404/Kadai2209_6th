@@ -21,16 +21,15 @@
         </option>
     </select>
 
-    <button type="submit" id="CodeToBeInput" name="airport_code" onclick="updateValue()">Search</button>
+    <button type="submit" id="codeToBeInput" name="airport_code" onclick="updateValue()">Search</button>
 </form>
 
 <script type="text/javascript">
     function updateValue(){
-    	const codeToSelect = document.pullDownForm.codeToSelect;
+        const codeToSelect = document.pullDownForm.codeToSelect;
 	    const indexNumber = codeToSelect.selectedIndex;
 	    document.pullDownForm.airport_code.value = codeToSelect.options[indexNumber].value;
     }
-
 
 </script>
 
