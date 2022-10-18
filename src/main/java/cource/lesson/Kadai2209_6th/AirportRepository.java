@@ -17,14 +17,14 @@ public class AirportRepository {
 
     public Map<String, Object> findByCode(String airportCode) {
 
-        String query = "SELECT *" + " FROM airports" + " WHERE airportCode=?";
+        String query = "SELECT * FROM airports WHERE airportCode=?";
 
         return jdbcTemplate.queryForMap(query, airportCode);
     }
 
     public List<String> findAllCode() {
 
-        String sql = "SELECT airportCode" + " FROM airports";
+        String sql = "SELECT airportCode FROM airports";
 
         List<String> foundCodeList = new ArrayList<>();
 
